@@ -1,5 +1,8 @@
 # botbrain_feed_sdk_ios_lite
 
+[![Version](https://img.shields.io/cocoapods/v/botbrain_feed_sdk_ios_lite.svg?style=flat)](http://cocoapods.org/pods/botbrain_feed_sdk_ios_lite)
+[![License](https://img.shields.io/cocoapods/l/botbrain_feed_sdk_ios_lite.svg?style=flat)](http://cocoapods.org/pods/botbrain_feed_sdk_ios_lite)
+[![Platform](https://img.shields.io/cocoapods/p/botbrain_feed_sdk_ios_lite.svg?style=flat)](http://cocoapods.org/pods/botbrain_feed_sdk_ios_lite)
 
 ## SDK使用方法
 
