@@ -8,13 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name             = 'botbrain_feed_sdk_ios_lite'
-  s.version          = '1.2.9'
+  s.version          = '1.3.0'
   s.summary          = '布本智能图文SDK简版'
 
   s.homepage         = 'https://github.com/BotBrain/botbrain_feed_sdk_ios_lite'
   s.license = {
     :type => "Copyright",
-    :text => "      Copyright (c) 2016 BotBrain. All rights reserved.\n"
+    :text => "      Copyright (c) 2017 BotBrain. All rights reserved.\n"
   }
   s.author           = { 'BotBrain' => 'zhangzhan@firedata.cc' }
   s.source           = { :git => 'https://github.com/BotBrain/botbrain_feed_sdk_ios_lite.git', :tag => s.version.to_s }
