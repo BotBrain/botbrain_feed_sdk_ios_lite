@@ -13,6 +13,10 @@
 4. 详情底部点赞和分享图标可自定义；
 5. 新增阅读文章行为回调。
 
+## SDK Demo
+您可以下载 [SDK Demo](https://github.com/BotBrain/botbrain_feed_sdk_ios_demo) 查看基本使用方法，详细接入步骤请阅读以下文档。
+
+
 ## SDK使用方法
 
 ### 1、集成准备
@@ -362,6 +366,7 @@ SDK依赖的 `AFNetworking` 和 `SDWebImage` 的版本号已经是比较低的�
 5.4、无法搜索到 `botbrain_feed_sdk_ios`
 
 如果遇见无法搜索到库 `botbrain_feed_sdk_ios` 的时候，请依次进行一下操作：
+
 （1）更新 `CocoaPods` 本地 `repo`，在终端执行以下代码：
 
 ```
