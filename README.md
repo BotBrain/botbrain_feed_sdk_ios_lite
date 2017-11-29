@@ -49,7 +49,7 @@ pod 'botbrain_feed_sdk_ios_lite', '~>1.3.0'
 ### 2、基本功能集成
 #### 2.1、配置 `AppDelegate.m`
 
-导入头文件 `#import "BotBrainManager.h"`
+导入头文件 `#import <BotBrainPods/BotBrainManager.h>`
 
 在 `AppDelegate.m` 配置相关信息：
 
@@ -94,7 +94,7 @@ return YES;
 
 #### 2.2、展示图文列表
 
-在你要展示图文列表的 `UIViewController` 中导入头文件 `#import "BotBrainManager.h"`。
+在你要展示图文列表的 `UIViewController` 中导入头文件 `#import <BotBrainPods/BotBrainManager.h>`。
 
 在你想要展示图文列表的点击事件中调用如下代码：
 
