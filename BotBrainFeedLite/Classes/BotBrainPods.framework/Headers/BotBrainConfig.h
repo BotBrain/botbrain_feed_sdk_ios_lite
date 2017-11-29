@@ -12,11 +12,15 @@
 @class BotBrainFeedDetailConfig;
 @class BotBrainFeedTabConfig;
 
+// 更新提示 前部分 Key
+FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTFRONTKEY;
+// 更新提示 后部分 Key
+FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
+
 @interface BotBrainConfig : NSObject
 
 /** SDK默认配置，不要重复调用此方法 */
 + (BotBrainConfig *)botDefaultConfig;
-
 /** 用户AppKey */
 @property (nonatomic, copy) NSString *appKey;
 /** 用户AppSecret */
@@ -45,12 +49,19 @@
 @property (nonatomic, assign) BOOL forbidHorizontalScroll;
 /** Feed流顶部Banner的高度，默认200，后台配置才会显示Banner */
 @property (nonatomic, assign) CGFloat bannerHeight;
-/** Feed流数据根更新提示背景色 */
+/** Feed流数据更新提示背景色 */
 @property (nonatomic, strong) UIColor *tipViewBackgroundColor;
-/** Feed流数据根更新提示文字样式 */
-@property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *tipTextAttributed;
-
-/** Feed流阅读历史提示文字颜色 */
+/** Feed流数据更新提示文字样式 */
+@property (nonatomic, strong) NSDictionary<NSString *, id> *tipTextAttributed;
+/** Feed下拉数据加载成功提示文字，如：又更新了 N 条数据，需要传入 N 前后两部分字符串 */
+// N 前部分字符串 Key：BOTBRAINFEEDTIPTEXTFRONTKEY
+// N 后部分字符串 Key：BOTBRAINFEEDTIPTEXTBEHINDKEY
+// 默认：又更新了N条数据
+@property (nonatomic, copy) NSDictionary *tipSuccessTextDictionary;
+/** Feed下拉数据无更新提示文字 */
+/** 默认：休息一会儿，暂无更新 */
+@property (nonatomic, copy) NSString *tipNoDataText;
+/** Feed阅读历史提示文字颜色 */
 @property (nonatomic, strong) UIColor *readHistoryTipTextColor;
 
 @end
@@ -72,6 +83,7 @@
 @end
 
 @interface BotBrainFeedTabConfig : NSObject
+
 // 注意：设置此Config后，标签栏的夜间模式不再生效，需要开发者自己根据不同的模式设置相关配置信息。
 // 没有默认值的都需要开发者赋值，有默认值开发者按需赋值
 /** 标签栏高度，默认40 */
@@ -85,9 +97,9 @@
 /** 标签栏指示器的高度，0 — 隐藏，默认0 */
 @property (nonatomic, assign) CGFloat tabIndicatorHeight;
 /** 标签栏文字正常状态样式 */
-@property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *tabTextNormalAttributes;
+@property (nonatomic, strong) NSDictionary<NSString *, id> *tabTextNormalAttributes;
 /** 标签栏文字选中状态样式 */
-@property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *tabTextSelectedAttributes;
+@property (nonatomic, strong) NSDictionary<NSString *, id> *tabTextSelectedAttributes;
 
 @end
 

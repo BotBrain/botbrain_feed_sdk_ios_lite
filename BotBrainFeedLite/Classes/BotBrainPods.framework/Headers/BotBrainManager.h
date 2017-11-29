@@ -70,42 +70,34 @@ typedef NS_ENUM(NSUInteger, BOTFeedThemeType) {
 
 /** 用户AppKey */
 @property (nonatomic, copy, readonly) NSString *appKey;
-/** 用户是否登录 */
-@property (nonatomic, assign, readonly) BOOL isLoggedIn;
+/** 判断用户是否登录 */
+@property (nonatomic, assign, readonly) BOOL isLogin;
 /** 用户登录信息 */
 @property (nonatomic, strong, readonly) BotBrainUserInfoModel *userInfo;
-/** Feed流代理 */
+/** Feed流相关代理 */
 @property (nonatomic, weak, readonly) id <BotBrainFeedDelegate> feedDelegate;
-/** 详情代理 */
+/** 详情的相关代理 */
 @property (nonatomic, weak, readonly) id <BotBrainFeedDetailDelegate> detailDelegate;
-
+/** SDK 配置信息 */
 @property (nonatomic, strong, readonly) BotBrainConfig *configure;
 
 + (instancetype)defaultManager;
 
 /**
- 是否输出Log，默认NO
- (建议使用 " configure "配置，后期会弃用此方法)
- @param enable YES or NO
- */
-+ (void)setBotBrainLogEnable:(BOOL)enable;
-
-/**
- 初始化。SDK (建议使用 " startWithConfigure: "，后期会弃用此方法)
- 
- @param appKey 用户AppKey
- @param appSecret 用户AppSecret
- @param channelID App渠道，默认AppStore
- */
-+ (void)startWithAppKey:(NSString *)appKey
-              appSecret:(NSString *)appSecret
-              channelID:(NSString *)channelID;
-/**
  初始化SDK
-
+ 
  @param configure 初始化配置
  */
 + (void)startWithConfigure:(BotBrainConfig *)configure;
+
+/**
+ 显示Feed列表
+ 
+ @param view 要添加到哪个view上
+ @param viewController 要显示在哪个ViewController里面
+ （如果viewController包含在导航栏中，详情页以push方式展示，否则以模态方式）
+ */
+- (void)addBotBrainFeedOnView:(id)view inViewController:(id)viewController;
 
 /**
  显示Feed流Controller
@@ -119,15 +111,27 @@ typedef NS_ENUM(NSUInteger, BOTFeedThemeType) {
  */
 - (void)showBotBrainFeedOnViewController:(id)viewController animated:(BOOL)animated;
 
+/**
+ 是否能处理OpenURL
+ @param openURL openURL
+ @return BOOL
+ */
++ (BOOL)handleOpenURL:(NSURL *)openURL;
 
 /**
- 显示Feed列表
-
- @param view 要添加到哪个view上
- @param viewController 要显示在哪个ViewController里面
- （如果viewController包含在导航栏中，详情页以push方式展示，否则以模态方式）
+ 展示详情页（此方法请在 "+ (BOOL)handleOpenURL:(NSURL *)openURL" 返回YES的情况下调用）
+ 
+ @param URL openURL
+ @param controller 用来展示详情页的controller，优先选择push方式，可为nil
  */
-- (void)addBotBrainFeedOnView:(id)view inViewController:(id)viewController;
+- (void)showBotBrainDetaiControllerWithURL:(NSURL *)URL onController:(id)controller;
+
+/**
+ 展示详情页
+ 
+ @param itemID 文章id
+ */
+- (void)showBotDetailControllerWithItemID:(NSString *)itemID;
 
 /**
  登录评论系统
@@ -153,7 +157,6 @@ typedef NS_ENUM(NSUInteger, BOTFeedThemeType) {
  @param delegate 代理
  */
 - (void)addFeedDetailDelegate:(id<BotBrainFeedDetailDelegate>)delegate;
-
 
 /**
  添加回调代理，控制列表相关
@@ -186,28 +189,6 @@ typedef NS_ENUM(NSUInteger, BOTFeedThemeType) {
 - (void)setBotBrainFeedVerticalScrollEnable:(BOOL)enable;
 
 /**
- 是否能处理OpenURL
- @param openURL openURL
- @return BOOL
- */
-+ (BOOL)handleOpenURL:(NSURL *)openURL;
-
-/**
- 展示详情页（此方法请在 "+ (BOOL)handleOpenURL:(NSURL *)openURL" 返回YES的情况下调用）
- 
- @param URL openURL
- @param controller 用来展示详情页的controller，优先选择push方式，可为nil
- */
-- (void)showBotBrainDetaiControllerWithURL:(NSURL *)URL onController:(id)controller;
-
-/**
- 展示详情页
-
- @param itemID 文章id
- */
-- (void)showBotDetailControllerWithItemID:(NSString *)itemID;
-
-/**
  切换日间模式和夜间模式
  如果没有夜间模式，有多套主题，设置【dayThemeDictionary】后调用此方法更新UI，type 选择 BOTFeedThemeType_Normal 。
  @param type BOTFeedThemeType
@@ -216,5 +197,28 @@ typedef NS_ENUM(NSUInteger, BOTFeedThemeType) {
 
 /** 当前显示的ViewController */
 + (UIViewController *)currentShowViewController;
+
+#pragma mark - WILL DEPRECATED
+/**
+ 是否输出Log，默认NO
+ (建议使用 " configure "配置，后期会弃用此方法)
+ @param enable YES or NO
+ */
++ (void)setBotBrainLogEnable:(BOOL)enable;
+
+/**
+ 初始化SDK (建议使用 " startWithConfigure: "，后期会弃用此方法)
+ 
+ @param appKey 用户AppKey
+ @param appSecret 用户AppSecret
+ @param channelID App渠道，默认AppStore
+ */
++ (void)startWithAppKey:(NSString *)appKey
+              appSecret:(NSString *)appSecret
+              channelID:(NSString *)channelID;
+
+#pragma mark - DEPRECATED
+/** 用户是否登录 */
+@property (nonatomic, assign, readonly) BOOL isLoggedIn DEPRECATED_MSG_ATTRIBUTE("isLoggedIn is deprecated. Use isLogin instead");
 
 @end
