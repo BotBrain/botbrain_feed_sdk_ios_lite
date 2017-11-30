@@ -5,6 +5,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/botbrain_feed_sdk_ios_lite.svg?style=flat)](http://cocoapods.org/pods/botbrain_feed_sdk_ios_lite)
 
 ## 版本更新
+#### v1.3.2
+1. 处理低版本 Xcode 编译问题；
+2. 修复 bug 。
 #### v1.3.0
 
 1. 栏目标签栏可自定义；
@@ -39,7 +42,7 @@ pod 'botbrain_feed_sdk_ios_lite', '~>1.3.0'
 ##### 1.2.2、手动集成
 
 请先 [下载SDK](https://github.com/BotBrain/botbrain_feed_sdk_ios_lite) ，SDK包含 `BotBrainFeedLite` 下所有文件。
-把SDK直接拖入进工程目录结构中，然后在选项 `TARGETS--> Build Phases-->Link Binary With Libraries` 中添加系统依赖库 `libz.tbd` 、`WebKit.framework`。
+把SDK直接拖入进工程目录结构中，然后在选项 `TARGETS--> Build Phases-->Link Binary With Libraries` 中添加系统依赖库 `libz.tbd` 、`WebKit.framework`、`CoreMotion.framework`、`StoreKit.framework`。
 
 然后在选项 `TARGETS--> Build Settings-->Linking-->Other Linker Flags` 添加 `-ObjC` 。
 
