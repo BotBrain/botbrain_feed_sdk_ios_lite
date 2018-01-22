@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 /// 全局配置相关类
 @class BotBrainFeedListConfig;
 @class BotBrainFeedDetailConfig;
@@ -29,8 +30,6 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 @property (nonatomic, copy) NSString *channel;
 /** 是否输出Log，默认 NO */
 @property (nonatomic, assign) BOOL logEnabled;
-/** 关闭广告 */
-@property (nonatomic, assign) BOOL closeAD;
 /** Feed流配置 */
 @property (nonatomic, strong) BotBrainFeedListConfig *feedListConfig;
 /** 详情配置 */
@@ -52,7 +51,7 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 /** Feed流数据更新提示背景色 */
 @property (nonatomic, strong) UIColor *tipViewBackgroundColor;
 /** Feed流数据更新提示文字样式 */
-@property (nonatomic, strong) NSDictionary<NSString *, id> *tipTextAttributed;
+@property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *tipTextAttributed;
 /** Feed下拉数据加载成功提示文字，如：又更新了 N 条数据，需要传入 N 前后两部分字符串 */
 // N 前部分字符串 Key：BOTBRAINFEEDTIPTEXTFRONTKEY
 // N 后部分字符串 Key：BOTBRAINFEEDTIPTEXTBEHINDKEY
@@ -69,6 +68,8 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 /// 详情相关配置
 @interface BotBrainFeedDetailConfig : NSObject
 
+/** 显示查看原文，视频音频等详情页 */
+@property (nonatomic, assign) BOOL showLookOriginal;
 /** 详情导航栏 RightItem，类型只能是 NSString 或者 UIImage 或者 UIButton，为nil时不显示 */
 @property (nonatomic, strong) id detailRightItemContent;
 /** 详情导航栏 LeftItem，类型只能是 NSString 或者 UIImage 或者 UIButton */
@@ -79,6 +80,12 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 @property (nonatomic, strong) UIImage *likeSelectedImage;
 /** 底部右下角分享图片 */
 @property (nonatomic, strong) UIImage *bottomShareImage;
+/** 底部评论数图片 */
+@property (nonatomic, strong) UIImage *bottomCommentNumberImage;
+/** 未收藏 */
+@property (nonatomic, strong) UIImage *bottomCollectNormalImage;
+/** 收藏 */
+@property (nonatomic, strong) UIImage *bottomCollectSelectedImage;
 
 @end
 
@@ -97,9 +104,9 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 /** 标签栏指示器的高度，0 — 隐藏，默认0 */
 @property (nonatomic, assign) CGFloat tabIndicatorHeight;
 /** 标签栏文字正常状态样式 */
-@property (nonatomic, strong) NSDictionary<NSString *, id> *tabTextNormalAttributes;
+@property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *tabTextNormalAttributes;
 /** 标签栏文字选中状态样式 */
-@property (nonatomic, strong) NSDictionary<NSString *, id> *tabTextSelectedAttributes;
+@property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *tabTextSelectedAttributes;
 
 @end
 

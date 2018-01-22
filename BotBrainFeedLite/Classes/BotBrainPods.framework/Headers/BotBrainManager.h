@@ -112,6 +112,14 @@ typedef NS_ENUM(NSUInteger, BOTFeedThemeType) {
 - (void)showBotBrainFeedOnViewController:(id)viewController animated:(BOOL)animated;
 
 /**
+ 解析收到的推送
+ 
+ @param userInfo 推送信息
+ @return  YES：可以正常解析，并跳转详情。NO：不可以解析，不做处理
+ */
++ (BOOL)handleNotificationUserInfo:(NSDictionary *)userInfo;
+
+/**
  是否能处理OpenURL
  @param openURL openURL
  @return BOOL

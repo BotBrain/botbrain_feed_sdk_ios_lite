@@ -5,6 +5,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/botbrain_feed_sdk_ios_lite.svg?style=flat)](http://cocoapods.org/pods/botbrain_feed_sdk_ios_lite)
 
 ## 版本更新
+#### v1.4.0
+1. 配合新版推荐引擎更新，优化推荐效果；
+2. 详情页部分 UI 修改；
+3. 增加视频、音频、图集详情的支持；
+4. 修复 bug。
 #### v1.3.2
 1. 处理低版本 Xcode 编译问题；
 2. 修复 bug 。
@@ -34,7 +39,7 @@
 首先在 `Podfile` 文件中添加：
 
 ```
-pod 'botbrain_feed_sdk_ios_lite', '~>1.3.0'
+pod 'botbrain_feed_sdk_ios_lite', '~>1.4.0'
 ```
 
 然后在终端 `cd` 到 `Podfile` 文件所在路径，执行 `pod install` 。
@@ -46,7 +51,7 @@ pod 'botbrain_feed_sdk_ios_lite', '~>1.3.0'
 
 然后在选项 `TARGETS--> Build Settings-->Linking-->Other Linker Flags` 添加 `-ObjC` 。
 
-本SDK依赖于常用开源网络库 `AFNetworking` （要求最低版本3.0.0）, 和图片处理库 `SDWebImage` （要求最低版本3.7.0）， 请您自行导入工程。
+本SDK依赖于常用开源网络库 `AFNetworking` （要求最低版本3.0.0）, 图片处理库 `SDWebImage` （要求最低版本3.7.0），视频播放库 `ZFPlaye` (要求最低版本2.0.0)，请您自行导入工程。
 
 
 ### 2、基本功能集成
@@ -391,3 +396,5 @@ BotBrain, zhangzhan@firedata.cc
 
 ## License
 Copyright (c) 2017 BotBrain. All rights reserved
+
+

@@ -145,6 +145,13 @@
 - (void)botBrainDidLikeWithShareModel:(BotBrainFeedShareModel *)shareModel;
 
 /**
+ 不喜欢
+
+ @param shareModel 当前Model
+ */
+- (void)botBrainDidDisLikeWithShareModel:(BotBrainFeedShareModel *)shareModel;
+
+/**
  发布评论 - 将要回复评论时（可实现此方法来提示用户登录）
  
  @param shareModel 当前Model
@@ -157,7 +164,20 @@
  @param shareModel 当前Model
  */
 - (void)botBrainDidCommentWithShareModel:(BotBrainFeedShareModel *)shareModel;
+/**
+ 点击评论数
+ 
+ @param shareModel 当前Model
+ */
+- (void)botBrainDidTapCommentNumberWithShareModel:(BotBrainFeedShareModel *)shareModel;
 
+/**
+ 收藏事件回调
+
+ @param shareModel 当前Model
+ @param state  YES: 收藏  NO: 取消收藏
+ */
+- (void)botBrainDidCollectWithShareModel:(BotBrainFeedShareModel *)shareModel collectState:(BOOL)state;
 /**
  点击Feed流阅读文章
  
@@ -171,6 +191,15 @@
  @param searchText 搜索的关键词
  */
 - (void)botBrainDidSearchWithSearchText:(NSString *)searchText;
+
+
+/**
+ 是否用 Safari 打开原文
+
+ @param URLString 原文地址
+ @return  BOOL YES：用 Safari 打开，NO：用 SDK WebView 打开
+ */
+- (BOOL)botNeedUseSDKOpenSourceURLString:(NSString *)URLString;
 
 #pragma mark - BotBrainFeedDetailDelegate —— UI
 

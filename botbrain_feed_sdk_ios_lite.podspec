@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'botbrain_feed_sdk_ios_lite'
-  s.version          = '1.3.2'
+  s.version          = '1.4.0'
   s.summary          = '布本智能图文SDK简版'
 
   s.homepage         = 'https://github.com/BotBrain/botbrain_feed_sdk_ios_lite'
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '>= 3.0.0'
   s.dependency 'SDWebImage', '>= 3.7.0'
   s.dependency 'BotFireData', '>= 0.2.1'
+  s.dependency 'ZFPlayer', '>= 2.0.0'
 
   s.frameworks = 'WebKit', 'CoreMotion', 'StoreKit'
   s.libraries = 'z'
