@@ -1,6 +1,6 @@
 {
   "name": "botbrain_feed_sdk_ios_lite",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "summary": "布本智能图文SDK简版",
   "homepage": "https://github.com/BotBrain/botbrain_feed_sdk_ios_lite",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/BotBrain/botbrain_feed_sdk_ios_lite.git",
-    "tag": "1.4.0"
+    "tag": "1.4.1"
   },
   "platforms": {
     "ios": "8.0"
