@@ -9,7 +9,7 @@
 #import "BOTContentViewController.h"
 #import <BotBrainPods/BotBrainManager.h>
 
-#define BOTAppKey       @"S4EBUTASGJ"
+#define BOTAppKey       @"XJKYC5VTZZ"
 #define BOTAppSecret    @"6E12AZUHNNP3YAWCEJR83G"
 
 @interface BOTContentViewController ()<BotBrainFeedDelegate, BotBrainFeedDetailDelegate>
@@ -42,6 +42,10 @@
     BotBrainConfig *config = [BotBrainConfig botDefaultConfig];
     config.appKey = BOTAppKey;
     config.appSecret = BOTAppSecret;
+    
+    config.feedDetailConfig.hideDetailRightItem = YES;
+    config.feedDetailConfig.hideDetailBottomView = YES;
+    
     [BotBrainManager startWithConfigure:config];
 }
 

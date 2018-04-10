@@ -37,6 +37,12 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 /** 标签栏UI配置，需要修改时初始化该实例然后调用 set 方法赋值 */
 @property (nonatomic, strong) BotBrainFeedTabConfig *feedTabConfig;
 
+// 注意：正常接入不用设置相关域名。只有私有化部署时才需要设置。
+/** Feed 流域名 */
+@property (nonatomic, copy) NSString *feedHost;
+/** 行为相关 域名 */
+@property (nonatomic, copy) NSString *behaviorHost;
+
 @end
 
 /// Feed流相关配置
@@ -67,6 +73,9 @@ FOUNDATION_EXTERN NSString *const BOTBRAINFEEDTIPTEXTBEHINDKEY;
 
 /// 详情相关配置
 @interface BotBrainFeedDetailConfig : NSObject
+
+@property (nonatomic, assign) BOOL hideDetailRightItem;
+@property (nonatomic, assign) BOOL hideDetailBottomView;
 
 /** 显示查看原文，视频音频等详情页 */
 @property (nonatomic, assign) BOOL showLookOriginal;

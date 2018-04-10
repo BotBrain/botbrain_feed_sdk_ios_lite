@@ -5,6 +5,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/botbrain_feed_sdk_ios_lite.svg?style=flat)](http://cocoapods.org/pods/botbrain_feed_sdk_ios_lite)
 
 ## 版本更新
+#### v1.4.2
+1. 添加详情分享和评论相关的开关，控制显示隐藏
+
 #### v1.4.1
 1. 配合新版推荐引擎更新，优化推荐效果；
 2. 详情页部分 UI 修改；
@@ -39,7 +42,7 @@
 首先在 `Podfile` 文件中添加：
 
 ```
-pod 'botbrain_feed_sdk_ios_lite', '~>1.4.1'
+pod 'botbrain_feed_sdk_ios_lite', '~>1.4.2'
 ```
 
 然后在终端 `cd` 到 `Podfile` 文件所在路径，执行 `pod install` 。
