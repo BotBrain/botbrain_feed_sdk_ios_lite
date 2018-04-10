@@ -1,0 +1,1 @@
+../../../../../../BotBrainFeedLite/Classes/BotBrainPods.framework/Headers/BotHttpRequestManager.h
